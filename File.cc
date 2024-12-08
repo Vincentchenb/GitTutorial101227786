@@ -1,25 +1,24 @@
 #include "File.h"
-#include <iostream>
 
-File::File(std::string name, std::string content, Date& date) 
-    : name(name), 
-      content(content), 
-      lastModified(date) {
+File::File(string name, string content, Date& date) {
+    this->name = name;
+    this->content = content;
+    this->lastModified.setDate(date);
 }
 
 bool File::lessThan(File& other) {
-    return lastModified.lessThan(other.lastModified);
+    return this->lastModified.lessThan(other.lastModified);
 }
 
-void File::print() const {
-    std::cout << "File: " << name << std::endl;
-    std::cout << "Last Modified: ";
+void File::print() {
+    cout << "File: " << name << endl;
+    cout << "Last Modified: ";
     lastModified.print();
-    std::cout << std::endl;
+    cout << endl;
 }
 
-void File::printContents() const {
+void File::printContents() {
     print();
-    std::cout << "Contents:" << std::endl;
-    std::cout << content << std::endl;
+    cout << "Contents:" << endl;
+    cout << content << endl;
 }
