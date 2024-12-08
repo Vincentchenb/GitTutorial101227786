@@ -4,22 +4,24 @@
 #include <string>
 #include "Date.h"
 
+using namespace std;
+
 class File {
 private:
-    std::string name;
-    std::string content;
+    string name;
+    string content;
     Date lastModified;
 
 public:
-    // Constructor takes a name, content, and Date reference
-    File(std::string name, std::string content, Date& date);
+    // Constructor using Date reference
+    File(string name, string content, Date& date);
     
-    // lessThan matches Date's implementation with non-const reference
+    // lessThan function that takes non-const reference
     bool lessThan(File& other);
     
-    // Print functions for displaying file information
-    void print() const;
-    void printContents() const;
+    // Print functions
+    void print();
+    void printContents();
 };
 
 #endif
