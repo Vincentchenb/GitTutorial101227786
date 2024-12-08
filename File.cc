@@ -2,10 +2,12 @@
 #include <iostream>
 
 File::File(std::string name, std::string content, Date& date) 
-    : name(name), content(content), lastModified(date) {
+    : name(name), 
+      content(content), 
+      lastModified(date) {
 }
 
-bool File::lessThan(const File& other) const {
+bool File::lessThan(File& other) {
     return lastModified.lessThan(other.lastModified);
 }
 
@@ -17,7 +19,7 @@ void File::print() const {
 }
 
 void File::printContents() const {
-    print(); // Print metadata first
+    print();
     std::cout << "Contents:" << std::endl;
     std::cout << content << std::endl;
 }
