@@ -2,12 +2,7 @@
 #define FILE_H
 
 #include <string>
-
-class Date {
-public:
-    bool lessThan(const Date& other) const;
-    void print() const;
-};
+#include "Date.h"
 
 class File {
 private:
@@ -16,16 +11,14 @@ private:
     Date lastModified;
 
 public:
-    // Constructor
+    // Constructor takes a name, content, and Date reference
     File(std::string name, std::string content, Date& date);
     
-    // Returns true if this file's date comes before other file's date
-    bool lessThan(const File& other) const;
+    // lessThan matches Date's implementation with non-const reference
+    bool lessThan(File& other);
     
-    // Print file metadata (name and date)
+    // Print functions for displaying file information
     void print() const;
-    
-    // Print metadata and contents
     void printContents() const;
 };
 
